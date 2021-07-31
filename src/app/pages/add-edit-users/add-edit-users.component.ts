@@ -113,6 +113,7 @@ export class AddEditUsersComponent implements OnInit {
     this.userService.updateUser(user);
     this.form.reset();
     this.router.navigateByUrl('');
+    //does this work
   }
 
   /**
