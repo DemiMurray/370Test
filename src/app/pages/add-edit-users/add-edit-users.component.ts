@@ -107,6 +107,7 @@ export class AddEditUsersComponent implements OnInit {
    */
   updateUser() {
     const user: User = this.form.value;
+    const person: string = "heyyy";
     user.id = this.user.id;
     this.userService.updateUser(user);
     this.form.reset();
