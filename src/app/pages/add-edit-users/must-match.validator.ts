@@ -10,7 +10,7 @@ export function MustMatch (controlName: string, matchingControlName: string) {
         if (matchingControl.errors && !matchingControl.errors.mustMatch) {
             // return if another validator has already found an error on the matchingControl
             return null;
-        }
+        }// checking if logout works 
 
         // set error on matchingControl if validation fails
         if (control.value !== matchingControl.value) {
