@@ -1,0 +1,79 @@
+<h1 *ngIf="isAddMode">Add User</h1>
+<h1 *ngIf="!isAddMode">Edit User</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mat-row">
+        <div class="mat-col-quarter">
+            <mat-form-field appearance="outline" class="control-w">
+                <mat-label>Title</mat-label>
+                <mat-select formControlName="title">
+                  <mat-option value="Dr">Dr</mat-option>
+                  <mat-option value="Mr">Mr</mat-option>
+                  <mat-option value="Mrs">Mrs</mat-option>
+                  <mat-option value="Miss">Miss</mat-option>
+                  <mat-option value="Ms">Ms</mat-option>
+                </mat-select>
+                <mat-hint align="end">Your title</mat-hint>
+              </mat-form-field>
+        </div>
+        <div class="mat-col-quarter">
+            <mat-form-field appearance="outline" class="control-w">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput placeholder="First Name" formControlName="firstName">
+                <mat-hint>Your first name</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="mat-col-quarter">
+            <mat-form-field appearance="outline" class="control-w">
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput placeholder="Last Name" formControlName="lastName">
+                <mat-hint>Your last name</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="mat-row">
+        <div class="mat-col-quarter">
+            <mat-form-field appearance="outline" class="control-m">
+                <mat-label>Email Address</mat-label>
+                <input type="text" matInput placeholder="email" formControlName="email">
+                <mat-hint>Your email address</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="mat-col-quarter">
+            <mat-form-field appearance="outline" class="control-m">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                  <mat-option value="User">User</mat-option>
+                  <mat-option value="Admin">Admin</mat-option>
+                </mat-select>
+                <mat-hint align="end">The centre the course will be offered at</mat-hint>
+              </mat-form-field>
+        </div>
+    </div>
+    <div *ngIf="!isAddMode">
+        <h3 class="pt-3">Change Password</h3>
+        <p>Leave blank to keep the same password</p>
+    </div>
+    <div class="mat-row">
+        <div class="mat-col-quarter">
+            <mat-form-field appearance="outline" class="control-m">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Password" formControlName="password">
+                <mat-hint>Your password</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="mat-col-quarter">
+            <mat-form-field appearance="outline" class="control-m">
+                <mat-label>Confirm Password</mat-label>
+                <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword">
+                <mat-hint>Confirm your password (must match)</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="form-group">
+        <button mat-raised-button color ="primary" [disabled]="loading">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save
+        </button>
+        <a (click)="Close()" mat-button>Cancel</a>
+    </div>
+</form>
