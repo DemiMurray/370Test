@@ -99,6 +99,7 @@ export class AddEditUsersComponent implements OnInit {
     const user: User = this.form.value;
     this.userService.addUser(user);
     this.router.navigateByUrl('');
+    //new user created
   }
 
   /**
@@ -112,6 +113,7 @@ export class AddEditUsersComponent implements OnInit {
     this.userService.updateUser(user);
     this.form.reset();
     this.router.navigateByUrl('');
+    //does this work
   }
 
   /**
